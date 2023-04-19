@@ -16,5 +16,5 @@ jobs:
                   server: ieee.icet.ac.in
                   username: subiee
                   password: ${{ secrets.ftp_password }}
-                  local-dir: .
+                  local-dir: ./
                   dangerous-clean-slate: true
