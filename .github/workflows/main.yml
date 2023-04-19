@@ -1,0 +1,20 @@
+name: CI
+on:
+    push:
+        branches: ['main']
+    workflow_dispatch:
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Upload Artifacts
+              uses: SamKirkland/FTP-Deploy-Action@4.3.2
+              with:
+                  server: ieee.icet.ac.in
+                  username: subiee
+                  password: ${{ secrets.ftp_password }}
+                  local-dir: .
+                  dangerous-clean-slate: true
